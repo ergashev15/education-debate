@@ -8,27 +8,36 @@
     <title>The Education Debate — Classical vs Progressive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Libre+Caslon+Display&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content" data-i18n="skipLink">Skip to main content</a>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="The Education Debate home">
-        <span class="brand-mark" aria-hidden="true">D</span>
-        <span data-i18n="brand">The Education Debate</span>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a href="#motion" data-i18n="navMotion">The motion</a>
-        <a href="#debate-info" data-i18n="navInfo">How it works</a>
-        <a href="#sides" data-i18n="navSides">The sides</a>
-        <a href="#join" data-i18n="navJoin">Participate</a>
-      </nav>
-      <button class="language" id="languageToggle" type="button" aria-label="Switch language">UZ</button>
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="The Education Debate home">
+          <span class="brand-mark" aria-hidden="true">D</span>
+          <span data-i18n="brand">The Education Debate</span>
+        </a>
+        <nav id="primaryNavigation" aria-label="Primary navigation">
+          <a href="#motion" data-i18n="navMotion">The motion</a>
+          <a href="#debate-info" data-i18n="navInfo">How it works</a>
+          <a href="#sides" data-i18n="navSides">The sides</a>
+          <a href="#join" data-i18n="navJoin">Participate</a>
+        </nav>
+        <div class="header-actions">
+          <button class="language" id="languageToggle" type="button" aria-label="Switch language">UZ</button>
+          <button class="menu-toggle" id="menuToggle" type="button" aria-controls="primaryNavigation" aria-expanded="false" aria-label="Open navigation">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
     </header>
 
-    <main id="top">
+    <main id="main-content" tabindex="-1">
+      <span id="top" aria-hidden="true"></span>
       <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-image" src="public/debate-hero.jpg" alt="Two student debate teams facing one another in a library" />
+        <img class="hero-image" src="public/debate-hero.jpg" width="900" height="338" fetchpriority="high" decoding="async" alt="Two student debate teams facing one another in a library" />
         <div class="hero-scrim"></div>
         <div class="hero-content">
           <p class="eyebrow"><span></span><span data-i18n="eyebrow">A debate about the future of learning</span></p>
@@ -133,8 +142,8 @@
         <div class="choice-panel">
           <p class="choice-label" data-i18n="leanLabel">Right now, I lean toward…</p>
           <div class="choice-buttons" role="group" aria-label="Choose a side">
-            <button type="button" data-choice="classical"><span class="roman">I</span><span data-i18n="choiceClassical">Classical</span></button>
-            <button type="button" data-choice="progressive"><span class="roman">II</span><span data-i18n="choiceProgressive">Progressive</span></button>
+            <button type="button" data-choice="classical" aria-pressed="false"><span class="roman">I</span><span data-i18n="choiceClassical">Classical</span></button>
+            <button type="button" data-choice="progressive" aria-pressed="false"><span class="roman">II</span><span data-i18n="choiceProgressive">Progressive</span></button>
           </div>
           <div class="choice-result" id="choiceResult" aria-live="polite" hidden>
             <p id="resultText"></p>
