@@ -33,8 +33,8 @@ nav a:hover, nav a:focus-visible { opacity: 1; }
 .language { justify-self: end; border: 1px solid rgba(255,255,255,.6); background: transparent; color: white; padding: 8px 11px; font: 600 .75rem var(--sans); cursor: pointer; }
 
 .hero { position: relative; min-height: 760px; height: 100svh; display: flex; align-items: center; overflow: hidden; background: var(--navy); color: white; }
-.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.82) contrast(1.05); }
-.hero-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3,10,24,.94) 0%, rgba(3,10,24,.65) 42%, rgba(3,10,24,.18) 75%), linear-gradient(0deg, rgba(3,10,24,.62), transparent 45%); }
+.hero-image { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.82) contrast(1.05); }
+.hero-scrim { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(3,10,24,.94) 0%, rgba(3,10,24,.65) 42%, rgba(3,10,24,.18) 75%), linear-gradient(0deg, rgba(3,10,24,.62), transparent 45%); }
 .hero-content { position: relative; z-index: 2; width: min(850px, 88vw); margin-left: 7vw; padding-top: 60px; }
 .eyebrow, .kicker { text-transform: uppercase; letter-spacing: .18em; font-size: .75rem; font-weight: 700; }
 .eyebrow { display: flex; align-items: center; gap: 12px; color: #f6c470; }
@@ -148,9 +148,10 @@ footer span { color: var(--gold); }
   .brand { font-size: .82rem; }
   nav { display: none; }
   .hero { min-height: 700px; }
+  .hero-image { object-position: 72% center; }
   .hero-content { margin-left: 24px; width: calc(100% - 48px); }
   .hero h1 { font-size: clamp(3.1rem, 15vw, 5.4rem); }
-  .hero-scrim { background: linear-gradient(90deg, rgba(3,10,24,.94), rgba(3,10,24,.4)), linear-gradient(0deg, rgba(3,10,24,.78), transparent); }
+  .hero-scrim { background: linear-gradient(90deg, rgba(3,10,24,.9) 0%, rgba(3,10,24,.56) 58%, rgba(3,10,24,.16) 100%), linear-gradient(0deg, rgba(3,10,24,.64), transparent 58%); }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
   .hero-caption { display: none; }
   .section { padding: 82px 24px; }
