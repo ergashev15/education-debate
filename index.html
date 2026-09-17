@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071326" />
+    <meta name="description" content="Choose your side in the debate over classical and progressive education in secondary schools." />
+    <title>The Education Debate — Classical vs Progressive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="The Education Debate home">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span data-i18n="brand">The Education Debate</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#motion" data-i18n="navMotion">The motion</a>
+        <a href="#debate-info" data-i18n="navInfo">How it works</a>
+        <a href="#sides" data-i18n="navSides">The sides</a>
+        <a href="#join" data-i18n="navJoin">Participate</a>
+      </nav>
+      <button class="language" id="languageToggle" type="button" aria-label="Switch language">UZ</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="public/debate-hero.jpg" alt="Two student debate teams facing one another in a library" />
+        <div class="hero-scrim"></div>
+        <div class="hero-content">
+          <p class="eyebrow"><span></span><span data-i18n="eyebrow">A debate about the future of learning</span></p>
+          <h1 id="hero-title" data-i18n="heroTitle">What should school <em>teach us to become?</em></h1>
+          <p class="hero-copy" data-i18n="heroCopy">Two visions of education. One question that shapes every classroom. Hear the arguments, challenge the assumptions, and choose your side.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#choose" data-i18n="chooseSide">Choose your side <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#motion" data-i18n="exploreMotion">Explore the motion <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <p class="hero-caption" data-i18n="caption">Classical knowledge <span>×</span> Progressive experience</p>
+      </section>
+
+      <section class="motion section" id="motion" aria-labelledby="motion-title">
+        <div class="section-number">01</div>
+        <div class="motion-content">
+          <p class="kicker" data-i18n="motionKicker">The motion</p>
+          <h2 id="motion-title" data-i18n="motionTitle">Secondary schools should adopt a <em>classical education model</em> rather than a progressive one.</h2>
+          <p class="motion-prompt" data-i18n="motionPrompt">Is education about passing on humanity’s best knowledge—or giving students the freedom to discover what knowledge means?</p>
+        </div>
+      </section>
+
+      <section class="debate-info section" id="debate-info" aria-labelledby="debate-info-title">
+        <div class="info-heading">
+          <div class="section-number">02</div>
+          <div>
+            <p class="kicker" data-i18n="infoKicker">About the debate</p>
+            <h2 id="debate-info-title" data-i18n="infoTitle">More than choosing a side.</h2>
+          </div>
+        </div>
+        <div class="info-intro">
+          <p data-i18n="infoIntro">A debate is a structured exchange of ideas. Each team presents a clear case, supports it with reasoning and examples, challenges the opposing case, and responds to criticism. The goal is not simply to speak louder—it is to think more clearly.</p>
+        </div>
+        <div class="info-grid">
+          <article class="info-card">
+            <span class="info-index">01</span>
+            <h3 data-i18n="infoCard1Title">Define the motion</h3>
+            <p data-i18n="infoCard1Copy">Decide what “classical,” “progressive,” and “adopt” mean. Fair definitions keep both teams focused on the same question.</p>
+          </article>
+          <article class="info-card">
+            <span class="info-index">02</span>
+            <h3 data-i18n="infoCard2Title">Build a case</h3>
+            <p data-i18n="infoCard2Copy">Make two or three strong claims. For each one, explain why it is true, give an example, and show why it matters.</p>
+          </article>
+          <article class="info-card">
+            <span class="info-index">03</span>
+            <h3 data-i18n="infoCard3Title">Create real clash</h3>
+            <p data-i18n="infoCard3Copy">Answer the other team’s strongest point directly. Compare impacts: which model is fairer, more effective, and better for students?</p>
+          </article>
+        </div>
+        <div class="debate-question">
+          <p class="kicker" data-i18n="coreQuestionKicker">The core question</p>
+          <blockquote data-i18n="coreQuestion">Should school first transmit a shared body of knowledge—or help every student construct knowledge through experience?</blockquote>
+          <div class="prep-list">
+            <p data-i18n="prepLabel">Before you speak:</p>
+            <ul>
+              <li data-i18n="prep1">Know your team’s central claim.</li>
+              <li data-i18n="prep2">Prepare evidence and concrete examples.</li>
+              <li data-i18n="prep3">Predict the best opposing argument.</li>
+              <li data-i18n="prep4">Finish with the impact on real students.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="sides" id="sides" aria-label="The two sides of the debate">
+        <article class="side side-classical">
+          <div class="side-topline"><span data-i18n="affirmative">Affirmative</span><span>01</span></div>
+          <div class="side-icon" aria-hidden="true">Ⅰ</div>
+          <h2 data-i18n="classicalTitle">Classical education</h2>
+          <p class="side-thesis" data-i18n="classicalThesis">Master the foundations. Then question everything.</p>
+          <ul>
+            <li><span>01</span><span data-i18n="classical1">A shared foundation of essential knowledge</span></li>
+            <li><span>02</span><span data-i18n="classical2">Logic, rhetoric, literature and disciplined practice</span></li>
+            <li><span>03</span><span data-i18n="classical3">Clear standards that give every student access</span></li>
+          </ul>
+          <button class="side-select" type="button" data-side="classical" data-i18n="standClassical">Stand for classical <span aria-hidden="true">→</span></button>
+        </article>
+
+        <div class="versus" aria-hidden="true"><span>V</span><span>S</span></div>
+
+        <article class="side side-progressive">
+          <div class="side-topline"><span data-i18n="opposition">Opposition</span><span>02</span></div>
+          <div class="side-icon" aria-hidden="true">Ⅱ</div>
+          <h2 data-i18n="progressiveTitle">Progressive education</h2>
+          <p class="side-thesis" data-i18n="progressiveThesis">Learn by doing. Build what comes next.</p>
+          <ul>
+            <li><span>01</span><span data-i18n="progressive1">Inquiry, projects and real-world problem solving</span></li>
+            <li><span>02</span><span data-i18n="progressive2">Student voice, collaboration and creativity</span></li>
+            <li><span>03</span><span data-i18n="progressive3">Flexible learning for different needs and futures</span></li>
+          </ul>
+          <button class="side-select" type="button" data-side="progressive" data-i18n="standProgressive">Stand for progressive <span aria-hidden="true">→</span></button>
+        </article>
+      </section>
+
+      <section class="choose section" id="choose" aria-labelledby="choose-title">
+        <div class="choose-copy">
+          <p class="kicker" data-i18n="yourVoice">Your voice</p>
+          <h2 id="choose-title" data-i18n="chooseTitle">Don’t sit on the fence.</h2>
+          <p data-i18n="chooseCopy">The best debates begin before anyone reaches the microphone. Pick the argument you want to defend.</p>
+        </div>
+        <div class="choice-panel">
+          <p class="choice-label" data-i18n="leanLabel">Right now, I lean toward…</p>
+          <div class="choice-buttons" role="group" aria-label="Choose a side">
+            <button type="button" data-choice="classical"><span class="roman">I</span><span data-i18n="choiceClassical">Classical</span></button>
+            <button type="button" data-choice="progressive"><span class="roman">II</span><span data-i18n="choiceProgressive">Progressive</span></button>
+          </div>
+          <div class="choice-result" id="choiceResult" aria-live="polite" hidden>
+            <p id="resultText"></p>
+            <button class="share-button" id="shareButton" type="button" data-i18n="shareInvite">Share the invitation</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="join section" id="join" aria-labelledby="join-title">
+        <div class="join-copy">
+          <p class="kicker" data-i18n="joinKicker">Take the floor</p>
+          <h2 id="join-title" data-i18n="joinTitle">Join the debate.</h2>
+          <p data-i18n="joinCopy">Choose how you want to participate and prepare a registration message. You can send it through Telegram or copy it for the organiser.</p>
+          <div class="join-note">
+            <span aria-hidden="true">↗</span>
+            <p data-i18n="privacyNote">Your details stay on this device until you choose to send or copy the application.</p>
+          </div>
+        </div>
+
+        <form class="join-form" id="joinForm">
+          <div class="form-grid">
+            <label class="field field-wide">
+              <span data-i18n="fullNameLabel">Full name</span>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" required data-placeholder-i18n="fullNamePlaceholder" placeholder="Your first and last name" />
+            </label>
+            <label class="field">
+              <span data-i18n="schoolLabel">School</span>
+              <input id="school" name="school" type="text" required data-placeholder-i18n="schoolPlaceholder" placeholder="School name or number" />
+            </label>
+            <label class="field">
+              <span data-i18n="gradeLabel">Class / grade</span>
+              <input id="grade" name="grade" type="text" required data-placeholder-i18n="gradePlaceholder" placeholder="For example: 10-B" />
+            </label>
+            <label class="field">
+              <span data-i18n="sideLabel">Preferred side</span>
+              <select id="preferredSide" name="preferredSide" required>
+                <option value="" data-i18n="selectOption">Select one</option>
+                <option value="classical" data-i18n="formClassical">Classical education</option>
+                <option value="progressive" data-i18n="formProgressive">Progressive education</option>
+                <option value="either" data-i18n="formEither">Either side</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n="roleLabel">Role</span>
+              <select id="participantRole" name="participantRole" required>
+                <option value="" data-i18n="selectOption">Select one</option>
+                <option value="speaker" data-i18n="roleSpeaker">Speaker</option>
+                <option value="audience" data-i18n="roleAudience">Audience</option>
+              </select>
+            </label>
+            <label class="field field-wide">
+              <span data-i18n="contactLabel">Telegram username or phone number</span>
+              <input id="contact" name="contact" type="text" autocomplete="tel" required data-placeholder-i18n="contactPlaceholder" placeholder="@username or +998…" />
+            </label>
+          </div>
+          <label class="consent">
+            <input id="consent" name="consent" type="checkbox" required />
+            <span data-i18n="consentLabel">I agree to include these details in my registration message.</span>
+          </label>
+          <button class="form-submit" type="submit" data-i18n="prepareApplication">Prepare my application <span aria-hidden="true">→</span></button>
+
+          <div class="application-result" id="applicationResult" aria-live="polite" hidden>
+            <p class="result-label" data-i18n="applicationReady">Your application is ready</p>
+            <pre id="applicationText"></pre>
+            <div class="result-actions">
+              <a id="telegramApplication" class="telegram-button" href="#" target="_blank" rel="noopener" data-i18n="sendOrganizer">Send to @Hsoxbdvu</a>
+              <button id="copyApplication" type="button" data-i18n="copyApplication">Copy application</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="closing">
+        <div class="closing-rule"></div>
+        <p class="kicker" data-i18n="openMind">Come with an argument. Leave with an open mind.</p>
+        <h2 data-i18n="closingTitle">Knowledge or discovery?<br /><em>The floor is yours.</em></h2>
+        <a class="button button-light" href="#top" data-i18n="returnTop">Return to the motion <span aria-hidden="true">↑</span></a>
+      </section>
+    </main>
+
+    <footer>
+      <p data-i18n="footer">A student debate on the future of secondary education.</p>
+      <p>CLASSICAL <span>×</span> PROGRESSIVE</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
