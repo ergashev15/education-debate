@@ -1,5 +1,6 @@
 const translations = {
   en: {
+    skipLink: "Skip to main content", menuOpen: "Open navigation", menuClose: "Close navigation",
     brand: "The Education Debate", navMotion: "The motion", navInfo: "How it works", navSides: "The sides", navJoin: "Participate",
     eyebrow: "A debate about the future of learning", heroTitle: "What should school <em>teach us to become?</em>",
     heroCopy: "Two visions of education. One question that shapes every classroom. Hear the arguments, challenge the assumptions, and choose your side.",
@@ -37,6 +38,7 @@ const translations = {
     progressiveResult: "You chose the progressive side. Bring your strongest case for curiosity, agency and learning by doing.", copied: "Invitation copied to clipboard."
   },
   uz: {
+    skipLink: "Asosiy qismga o‘tish", menuOpen: "Navigatsiyani ochish", menuClose: "Navigatsiyani yopish",
     brand: "Ta’lim bahsi", navMotion: "Rezolyutsiya", navInfo: "Bahs tartibi", navSides: "Tomonlar", navJoin: "Qatnashish",
     eyebrow: "Ta’lim kelajagi haqidagi bahs", heroTitle: "Maktab bizga <em>kim bo‘lishni o‘rgatishi kerak?</em>",
     heroCopy: "Ta’limning ikki xil tasavvuri. Har bir sinfga ta’sir qiladigan bitta savol. Dalillarni tinglang, qarashlarni sinang va o‘z tomoningizni tanlang.",
@@ -79,6 +81,21 @@ let language = "en";
 let selectedSide = null;
 const result = document.getElementById("choiceResult");
 const resultText = document.getElementById("resultText");
+const header = document.querySelector(".site-header");
+const menuToggle = document.getElementById("menuToggle");
+const primaryNavigation = document.getElementById("primaryNavigation");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function scrollOptions(block = "start") {
+  return { behavior: prefersReducedMotion.matches ? "auto" : "smooth", block };
+}
+
+function setMenu(open) {
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", translations[language][open ? "menuClose" : "menuOpen"]);
+  header.classList.toggle("menu-open", open);
+  document.body.classList.toggle("menu-open", open);
+}
 
 function setLanguage(next) {
   language = next;
@@ -90,22 +107,61 @@ function setLanguage(next) {
     node.placeholder = translations[next][node.dataset.placeholderI18n];
   });
   document.getElementById("languageToggle").textContent = next === "en" ? "UZ" : "EN";
+  menuToggle.setAttribute("aria-label", translations[next][menuToggle.getAttribute("aria-expanded") === "true" ? "menuClose" : "menuOpen"]);
   if (selectedSide) showChoice(selectedSide);
   if (!document.getElementById("applicationResult").hidden) buildApplication();
 }
 
 function showChoice(side) {
   selectedSide = side;
-  document.querySelectorAll("[data-choice]").forEach((button) => button.classList.toggle("active", button.dataset.choice === side));
+  document.querySelectorAll("[data-choice]").forEach((button) => {
+    const selected = button.dataset.choice === side;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
   result.hidden = false;
   resultText.textContent = translations[language][side === "classical" ? "classicalResult" : "progressiveResult"];
 }
 
 document.getElementById("languageToggle").addEventListener("click", () => setLanguage(language === "en" ? "uz" : "en"));
+menuToggle.addEventListener("click", () => setMenu(menuToggle.getAttribute("aria-expanded") !== "true"));
+primaryNavigation.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setMenu(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setMenu(false);
+});
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) setMenu(false);
+});
+
+let scrollFrame = null;
+window.addEventListener("scroll", () => {
+  if (scrollFrame) return;
+  scrollFrame = window.requestAnimationFrame(() => {
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+    scrollFrame = null;
+  });
+}, { passive: true });
+
+if ("IntersectionObserver" in window) {
+  const navigationLinks = [...primaryNavigation.querySelectorAll("a")];
+  const sections = navigationLinks.map((link) => document.querySelector(link.hash)).filter(Boolean);
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    navigationLinks.forEach((link) => {
+      if (link.hash === `#${visible.target.id}`) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+  }, { rootMargin: "-28% 0px -58%", threshold: [0, .25, .6] });
+  sections.forEach((section) => sectionObserver.observe(section));
+}
+
 document.querySelectorAll("[data-choice]").forEach((button) => button.addEventListener("click", () => showChoice(button.dataset.choice)));
 document.querySelectorAll("[data-side]").forEach((button) => button.addEventListener("click", () => {
   showChoice(button.dataset.side);
-  document.getElementById("choose").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("choose").scrollIntoView(scrollOptions());
 }));
 
 document.getElementById("shareButton").addEventListener("click", async () => {
@@ -162,7 +218,7 @@ joinForm.addEventListener("submit", (event) => {
   if (!joinForm.reportValidity()) return;
   buildApplication();
   applicationResult.hidden = false;
-  applicationResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  applicationResult.scrollIntoView(scrollOptions("nearest"));
 });
 
 document.getElementById("copyApplication").addEventListener("click", async () => {
